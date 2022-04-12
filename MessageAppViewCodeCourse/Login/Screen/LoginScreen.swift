@@ -166,53 +166,53 @@ class LoginScreen: UIView {
     //inset = valor negativo
    
     func configLoginLabelConstraints() {
-        self.loginLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(20)
-            make.centerX.equalToSuperview()
-        }
+        NSLayoutConstraint.activate([
+            self.loginLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
+            self.loginLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
     }
     
     func configLogoAppImageViewConstraints() {
-        self.logoAppImageView.snp.makeConstraints { make in
-            make.top.equalTo(self.loginLabel.snp.bottom).offset(50)
-            make.leading.equalToSuperview().offset(60)
-            make.trailing.equalToSuperview().inset(60)
-            make.height.equalTo(150)
-        }
+        NSLayoutConstraint.activate([
+            self.logoAppImageView.topAnchor.constraint(equalTo: self.loginLabel.bottomAnchor, constant: 50),
+            self.logoAppImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 60),
+            self.logoAppImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -60),
+            self.logoAppImageView.heightAnchor.constraint(equalToConstant: 150)
+        ])
     }
     
     func configEmailTextFieldConstraints() {
-        self.emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(self.logoAppImageView.snp.bottom).offset(50)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(45)
-        }
+        NSLayoutConstraint.activate([
+            self.emailTextField.topAnchor.constraint(equalTo: self.logoAppImageView.bottomAnchor, constant: 50),
+            self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            self.emailTextField.heightAnchor.constraint(equalToConstant: 45)
+        ])
     }
     
     func configPasswordTextFieldConstraints() {
-        self.passwordTextField.snp.makeConstraints { make in
-            make.top.equalTo(self.emailTextField.snp.bottom).offset(15)
-            make.leading.equalTo(self.emailTextField.snp.leading)
-            make.trailing.equalTo(self.emailTextField.snp.trailing)
-            make.height.equalTo(self.emailTextField.snp.height)
-        }
+        NSLayoutConstraint.activate([
+            self.passwordTextField.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor, constant: 15),
+            self.passwordTextField.leadingAnchor.constraint(equalTo: self.emailTextField.leadingAnchor),
+            self.passwordTextField.trailingAnchor.constraint(equalTo: self.emailTextField.trailingAnchor),
+            self.passwordTextField.heightAnchor.constraint(equalTo: self.emailTextField.heightAnchor)
+        ])
     }
     
     func configLogginButtonConstraints() {
-        self.logginButton.snp.makeConstraints { make in
-            make.top.equalTo(self.passwordTextField.snp.bottom).offset(30)
-            make.leading.equalTo(self.emailTextField.snp.leading)
-            make.trailing.equalTo(self.emailTextField.snp.trailing)
-            make.height.equalTo(self.emailTextField.snp.height)
-        }
+        NSLayoutConstraint.activate([
+            self.logginButton.topAnchor.constraint(equalTo: self.passwordTextField.bottomAnchor, constant: 30),
+            self.logginButton.leadingAnchor.constraint(equalTo: self.emailTextField.leadingAnchor),
+            self.logginButton.trailingAnchor.constraint(equalTo: self.emailTextField.trailingAnchor),
+            self.logginButton.heightAnchor.constraint(equalTo: self.emailTextField.heightAnchor)
+        ])
     }
     
     func configRegisterButtonConstraints() {
-        self.registerButton.snp.makeConstraints { make in
-            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
-            make.centerX.equalToSuperview()
-        }
+        NSLayoutConstraint.activate([
+            self.registerButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            self.registerButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
     }
     
     required init?(coder: NSCoder) {

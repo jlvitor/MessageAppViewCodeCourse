@@ -48,7 +48,7 @@ class RegisterScreen: UIView {
         textField.placeholder = "Digite seu email"
         textField.font = UIFont.systemFont(ofSize: 14)
         textField.autocapitalizationType = .none
-        textField.textColor = .darkGray
+        textField.textColor = .black
         return textField
     }()
     
@@ -62,7 +62,7 @@ class RegisterScreen: UIView {
         textField.isSecureTextEntry = true
         textField.placeholder = "Digite sua senha"
         textField.font = UIFont.systemFont(ofSize: 14)
-        textField.textColor = .darkGray
+        textField.textColor = .black
         return textField
     }()
     
@@ -84,7 +84,7 @@ class RegisterScreen: UIView {
         super.init(frame: frame)
         self.configBackground()
         self.configSuperView()
-        //----------------------//
+        //-------Constraints-----------//
         self.configBackButtonConstraints()
         self.configImageAddUserConstraints()
         self.configEmailTextFieldConstraints()
@@ -92,6 +92,10 @@ class RegisterScreen: UIView {
         self.configRegisterButtonConstraints()
         //---------------------//
         self.configButtonEnable(false)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     //MARK: Config
@@ -152,49 +156,46 @@ class RegisterScreen: UIView {
     
     //MARK: Constraints
     func configBackButtonConstraints() {
-        self.backButton.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(20)
-            make.leading.equalToSuperview().offset(20)
-        }
+        NSLayoutConstraint.activate([
+            self.backButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
+            self.backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
+        ])
     }
     
     func configImageAddUserConstraints() {
-        self.imageAddUser.snp.makeConstraints { make in
-            make.top.equalTo(self.backButton.snp.bottom).offset(50)
-            make.centerX.equalToSuperview()
-            make.height.width.equalTo(150)
-        }
+        NSLayoutConstraint.activate([
+            self.imageAddUser.topAnchor.constraint(equalTo: self.backButton.bottomAnchor, constant: 50),
+            self.imageAddUser.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.imageAddUser.heightAnchor.constraint(equalToConstant: 150),
+            self.imageAddUser.widthAnchor.constraint(equalToConstant: 150)
+        ])
     }
     
     func configEmailTextFieldConstraints() {
-        self.emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(self.imageAddUser.snp.bottom).offset(50)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(45)
-        }
+        NSLayoutConstraint.activate([
+            self.emailTextField.topAnchor.constraint(equalTo: self.imageAddUser.bottomAnchor, constant: 50),
+            self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            self.emailTextField.heightAnchor.constraint(equalToConstant: 45)
+        ])
     }
     
     func configPasswordTextFieldConstraints() {
-        self.passwordTextField.snp.makeConstraints { make in
-            make.top.equalTo(self.emailTextField.snp.bottom).offset(15)
-            make.leading.equalTo(self.emailTextField.snp.leading)
-            make.trailing.equalTo(self.emailTextField.snp.trailing)
-            make.height.equalTo(self.emailTextField.snp.height)
-        }
+        NSLayoutConstraint.activate([
+            self.passwordTextField.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor, constant: 15),
+            self.passwordTextField.leadingAnchor.constraint(equalTo: self.emailTextField.leadingAnchor),
+            self.passwordTextField.trailingAnchor.constraint(equalTo: self.emailTextField.trailingAnchor),
+            self.passwordTextField.heightAnchor.constraint(equalTo: self.emailTextField.heightAnchor)
+        ])
     }
     
     func configRegisterButtonConstraints() {
-        self.registerButton.snp.makeConstraints { make in
-            make.top.equalTo(self.passwordTextField.snp.bottom).offset(30)
-            make.leading.equalTo(self.emailTextField.snp.leading)
-            make.trailing.equalTo(self.emailTextField.snp.trailing)
-            make.height.equalTo(self.emailTextField.snp.height)
-        }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        NSLayoutConstraint.activate([
+            self.registerButton.topAnchor.constraint(equalTo: self.passwordTextField.bottomAnchor, constant: 30),
+            self.registerButton.leadingAnchor.constraint(equalTo: self.emailTextField.leadingAnchor),
+            self.registerButton.trailingAnchor.constraint(equalTo: self.emailTextField.trailingAnchor),
+            self.registerButton.heightAnchor.constraint(equalTo: self.emailTextField.heightAnchor)
+        ])
     }
     
 }
