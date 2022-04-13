@@ -39,15 +39,15 @@ class MessageDetailCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUpViewContact(contact: Contact) {
+    func setUpViewContact(contact: Contact) {
         self.setUserName(userName: contact.nome ?? "")
     }
     
-    private func setUpViewConversation(conversation: Conversation) {
+    func setUpViewConversation(conversation: Conversation) {
         self.setUserNameAttributedText(conversation)
     }
     
-    private func setUserNameAttributedText(_ conversation: Conversation) {
+    func setUserNameAttributedText(_ conversation: Conversation) {
         let attributedText = NSMutableAttributedString(string: "\(conversation.nome ?? "")", attributes: [NSAttributedString.Key.font : UIFont(name: CustomFont.poppinsMedium, size: 16) ?? UIFont(), NSAttributedString.Key.foregroundColor: UIColor.darkGray])
         
         attributedText.append(NSAttributedString(string: "\n\(conversation.ultimaMensagem ?? "")", attributes: [NSAttributedString.Key.font : UIFont(name: CustomFont.poppinsMedium, size: 14) ?? UIFont(), NSAttributedString.Key.foregroundColor: UIColor.lightGray]))
@@ -55,7 +55,7 @@ class MessageDetailCollectionViewCell: UICollectionViewCell {
         self.userName.attributedText = attributedText
     }
     
-    private func setUserName(userName: String) {
+    func setUserName(userName: String) {
         let attributedText = NSMutableAttributedString(string: userName, attributes: [NSAttributedString.Key.font : UIFont(name: CustomFont.poppinsMedium, size: 16) ?? UIFont(), NSAttributedString.Key.foregroundColor: UIColor.darkGray])
         
         self.userName.attributedText = attributedText

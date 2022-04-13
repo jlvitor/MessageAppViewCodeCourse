@@ -12,8 +12,8 @@ class HomeVC: UIViewController {
     
     var auth: Auth?
     var db: Firestore?
-    
     var idUsuarioLogado: String?
+    
     var screenContact: Bool?
     var emailUsuarioLogado: String?
     var alert: Alert?
@@ -39,6 +39,7 @@ class HomeVC: UIViewController {
         self.configCollectionView()
         self.configAlert()
         self.configIdentifierFirebase()
+        self.configContact()
         self.addListenerRecuperarConversa()
     }
     
@@ -90,7 +91,7 @@ class HomeVC: UIViewController {
         }
     }
     
-    private func getContact() {
+    func getContact() {
         self.listOfContact.removeAll()
         self.db?.collection("usuarios").document(self.idUsuarioLogado ?? "").collection("contatos").getDocuments(completion: { snapshotResult, error in
             
@@ -113,15 +114,41 @@ class HomeVC: UIViewController {
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        if self.screenContact ?? false {
+            return self.listOfContact.count + 1
+        } else {
+            return self.listOfMessages.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        if self.screenContact ?? false {
+            if indexPath.row == self.listOfContact.count {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MessageLastCollectionViewCell.identifier, for: indexPath)
+                return cell
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MessageDetailCollectionViewCell.identifier, for: indexPath) as? MessageDetailCollectionViewCell
+                cell?.setUpViewContact(contact: self.listOfContact[indexPath.row])
+                return cell ?? UICollectionViewCell()
+            }
+        } else {
+            //Celula DE CONVERSAS
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MessageDetailCollectionViewCell.identifier, for: indexPath) as? MessageDetailCollectionViewCell
+            cell?.setUpViewConversation(conversation: self.listOfMessages[indexPath.row])
+            return cell ?? UICollectionViewCell()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        if self.screenContact ?? false {
+            if indexPath.row == self.listOfContact.count {
+                self.alert?.addContact(completion: { value in
+                    self.contact?.addContact(email: value, emailUsuarioLogado: self.emailUsuarioLogado ?? "", idUsuario: self.idUsuarioLogado ?? "")
+                })
+            }
+        } else {
+            
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -138,6 +165,7 @@ extension HomeVC: NavViewProtocol {
         case .contact:
             self.screenContact = true
             self.getContact()
+            self.messagesListener?.remove()
         case .conversation:
             self.screenContact = false
             self.addListenerRecuperarConversa()
