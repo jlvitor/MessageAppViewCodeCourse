@@ -31,6 +31,7 @@
 		CCB01DE928068F5F00FF16F0 /* MessageAllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB01DE828068F5F00FF16F0 /* MessageAllModel.swift */; };
 		CCB01DEC280691F000FF16F0 /* MessageLastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB01DEB280691F000FF16F0 /* MessageLastCollectionViewCell.swift */; };
 		CCB01DEE2806953600FF16F0 /* MessageDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB01DED2806953600FF16F0 /* MessageDetailCollectionViewCell.swift */; };
+		CCEBBF70280719F100ACBFA6 /* ContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEBBF6F280719F100ACBFA6 /* ContactController.swift */; };
 		F3C15E1C61AD2B1664F2F705 /* Pods_MessageAppViewCodeCourse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8BDE1D84AE2A335C4D2E53 /* Pods_MessageAppViewCodeCourse.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		CCB01DE828068F5F00FF16F0 /* MessageAllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAllModel.swift; sourceTree = "<group>"; };
 		CCB01DEB280691F000FF16F0 /* MessageLastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLastCollectionViewCell.swift; sourceTree = "<group>"; };
 		CCB01DED2806953600FF16F0 /* MessageDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		CCEBBF6F280719F100ACBFA6 /* ContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 		CCB01DDD2806479600FF16F0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				CCB01DDE280647D400FF16F0 /* HomeVC.swift */,
 				CCB01DEA2806919200FF16F0 /* Cell */,
 				CCB01DE428064ABF00FF16F0 /* NavView */,
 				CCB01DE32806485000FF16F0 /* Controller */,
@@ -235,7 +238,7 @@
 		CCB01DE32806485000FF16F0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CCB01DDE280647D400FF16F0 /* HomeVC.swift */,
+				CCEBBF6F280719F100ACBFA6 /* ContactController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				CCB01DE928068F5F00FF16F0 /* MessageAllModel.swift in Sources */,
 				CC477823280546C30089A959 /* LoginScreen.swift in Sources */,
 				CCB01DE628064AE300FF16F0 /* NavView.swift in Sources */,
+				CCEBBF70280719F100ACBFA6 /* ContactController.swift in Sources */,
 				CCB01DE22806484200FF16F0 /* HomeScreen.swift in Sources */,
 				CC477805280546800089A959 /* SceneDelegate.swift in Sources */,
 				CCB01DD228062D4900FF16F0 /* Extension+String.swift in Sources */,
