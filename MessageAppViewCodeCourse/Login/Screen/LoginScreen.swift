@@ -24,7 +24,7 @@ class LoginScreen: UIView {
     lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
+        label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 40)
         label.text = "Login"
         return label
@@ -33,7 +33,7 @@ class LoginScreen: UIView {
     lazy var logoAppImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "logo")?.withTintColor(.green)
+        image.image = UIImage(named: "logo")
         image.contentMode = .scaleAspectFit
         return image
     }()
@@ -46,6 +46,7 @@ class LoginScreen: UIView {
         textField.borderStyle = .roundedRect
         textField.keyboardType = .emailAddress
         textField.placeholder = "Digite seu email"
+        textField.text = "jean@teste.com.br"
         textField.autocapitalizationType = .none
         textField.textColor = .darkGray
         return textField
@@ -60,6 +61,7 @@ class LoginScreen: UIView {
         textField.keyboardType = .default
         textField.isSecureTextEntry = true
         textField.placeholder = "Digite sua senha"
+        textField.text = "123@Mudar"
         textField.autocapitalizationType = .none
         textField.textColor = .darkGray
         return textField

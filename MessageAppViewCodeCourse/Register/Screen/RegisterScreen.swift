@@ -23,8 +23,7 @@ class RegisterScreen: UIView {
     lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "arrow.backward"), for: .normal)
-        button.tintColor = .white
+        button.setImage(UIImage(named: "back")?.withTintColor(.white), for: .normal)
         button.addTarget(self, action: #selector(self.tappedBackButton), for: .touchUpInside)
         return button
     }()
@@ -32,10 +31,24 @@ class RegisterScreen: UIView {
     lazy var imageAddUser: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(systemName: "person.crop.circle.badge.plus")
+        image.image = UIImage(named: "usuario")
         image.contentMode = .scaleAspectFit
         image.tintColor = .white
         return image
+    }()
+    
+    lazy var nameTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.autocorrectionType = .no
+        textField.backgroundColor = .white
+        textField.borderStyle = .roundedRect
+        textField.keyboardType = .emailAddress
+        textField.placeholder = "Digite seu nome"
+        textField.font = UIFont.systemFont(ofSize: 14)
+        textField.autocapitalizationType = .none
+        textField.textColor = .black
+        return textField
     }()
     
     lazy var emailTextField: UITextField = {
@@ -87,6 +100,7 @@ class RegisterScreen: UIView {
         //-------Constraints-----------//
         self.configBackButtonConstraints()
         self.configImageAddUserConstraints()
+        self.configNameTextFieldConstraints()
         self.configEmailTextFieldConstraints()
         self.configPasswordTextFieldConstraints()
         self.configRegisterButtonConstraints()
@@ -106,12 +120,14 @@ class RegisterScreen: UIView {
     private func configSuperView() {
         self.addSubview(self.backButton)
         self.addSubview(self.imageAddUser)
+        self.addSubview(self.nameTextField)
         self.addSubview(self.emailTextField)
         self.addSubview(self.passwordTextField)
         self.addSubview(self.registerButton)
     }
     
     public func configTextFieldDelegate(delegate: UITextFieldDelegate) {
+        self.nameTextField.delegate = delegate
         self.emailTextField.delegate = delegate
         self.passwordTextField.delegate = delegate
     }
@@ -124,6 +140,19 @@ class RegisterScreen: UIView {
         self.delegate?.actionregisterButton()
     }
     
+    public func validaTextFields() {
+        let name: String = self.nameTextField.text ?? ""
+        let email: String = self.emailTextField.text ?? ""
+        let password: String = self.passwordTextField.text ?? ""
+        
+        if !name.isEmpty && !email.isEmpty && !password.isEmpty {
+            self.configButtonEnable(true)
+        } else {
+            self.configButtonEnable(false)
+        }
+        
+    }
+    
     private func configButtonEnable(_ enable: Bool) {
         if enable {
             self.registerButton.setTitleColor(.white, for: .normal)
@@ -134,16 +163,8 @@ class RegisterScreen: UIView {
         }
     }
     
-    public func validaTextFields() {
-        let email: String = self.emailTextField.text ?? ""
-        let password: String = self.passwordTextField.text ?? ""
-        
-        if !email.isEmpty && !password.isEmpty {
-            self.configButtonEnable(true)
-        } else {
-            self.configButtonEnable(false)
-        }
-        
+    public func getName() -> String {
+        return self.nameTextField.text ?? ""
     }
     
     public func getEmail() -> String {
@@ -171,30 +192,39 @@ class RegisterScreen: UIView {
         ])
     }
     
+    func configNameTextFieldConstraints() {
+        NSLayoutConstraint.activate([
+            self.nameTextField.topAnchor.constraint(equalTo: self.imageAddUser.bottomAnchor, constant: 50),
+            self.nameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            self.nameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            self.nameTextField.heightAnchor.constraint(equalToConstant: 45)
+        ])
+    }
+    
     func configEmailTextFieldConstraints() {
         NSLayoutConstraint.activate([
-            self.emailTextField.topAnchor.constraint(equalTo: self.imageAddUser.bottomAnchor, constant: 50),
-            self.emailTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            self.emailTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            self.emailTextField.heightAnchor.constraint(equalToConstant: 45)
+            self.emailTextField.topAnchor.constraint(equalTo: self.nameTextField.bottomAnchor, constant: 15),
+            self.emailTextField.leadingAnchor.constraint(equalTo: self.nameTextField.leadingAnchor),
+            self.emailTextField.trailingAnchor.constraint(equalTo: self.nameTextField.trailingAnchor),
+            self.emailTextField.heightAnchor.constraint(equalTo: self.nameTextField.heightAnchor)
         ])
     }
     
     func configPasswordTextFieldConstraints() {
         NSLayoutConstraint.activate([
             self.passwordTextField.topAnchor.constraint(equalTo: self.emailTextField.bottomAnchor, constant: 15),
-            self.passwordTextField.leadingAnchor.constraint(equalTo: self.emailTextField.leadingAnchor),
-            self.passwordTextField.trailingAnchor.constraint(equalTo: self.emailTextField.trailingAnchor),
-            self.passwordTextField.heightAnchor.constraint(equalTo: self.emailTextField.heightAnchor)
+            self.passwordTextField.leadingAnchor.constraint(equalTo: self.nameTextField.leadingAnchor),
+            self.passwordTextField.trailingAnchor.constraint(equalTo: self.nameTextField.trailingAnchor),
+            self.passwordTextField.heightAnchor.constraint(equalTo: self.nameTextField.heightAnchor)
         ])
     }
     
     func configRegisterButtonConstraints() {
         NSLayoutConstraint.activate([
             self.registerButton.topAnchor.constraint(equalTo: self.passwordTextField.bottomAnchor, constant: 30),
-            self.registerButton.leadingAnchor.constraint(equalTo: self.emailTextField.leadingAnchor),
-            self.registerButton.trailingAnchor.constraint(equalTo: self.emailTextField.trailingAnchor),
-            self.registerButton.heightAnchor.constraint(equalTo: self.emailTextField.heightAnchor)
+            self.registerButton.leadingAnchor.constraint(equalTo: self.nameTextField.leadingAnchor),
+            self.registerButton.trailingAnchor.constraint(equalTo: self.nameTextField.trailingAnchor),
+            self.registerButton.heightAnchor.constraint(equalTo: self.nameTextField.heightAnchor)
         ])
     }
     

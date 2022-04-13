@@ -8,9 +8,10 @@
 import UIKit
 import Firebase
 
-class RegisterViewController: UIViewController {
+class RegisterVC: UIViewController {
     var registerScreen: RegisterScreen?
     var auth: Auth?
+    var firestore: Firestore?
     var alert: Alert?
     
     override func loadView() {
@@ -23,11 +24,12 @@ class RegisterViewController: UIViewController {
         self.registerScreen?.configTextFieldDelegate(delegate: self)
         self.registerScreen?.delegate(delegate: self)
         self.auth = Auth.auth()
+        self.firestore = Firestore.firestore()
         self.alert = Alert(controller: self)
     }
 }
 
-extension RegisterViewController: UITextFieldDelegate {
+extension RegisterVC: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.registerScreen?.validaTextFields()
     }
@@ -38,7 +40,7 @@ extension RegisterViewController: UITextFieldDelegate {
     }
 }
 
-extension RegisterViewController: RegisterScreenProtocol {
+extension RegisterVC: RegisterScreenProtocol {
     func actionBackButton() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -50,8 +52,19 @@ extension RegisterViewController: RegisterScreenProtocol {
             if error != nil {
                 self.alert?.getALert(title: "Atenção", message: "Erro ao cadastrar, verifique os dados e tente novamente.")
             } else {
+                //Salvar dados no firebase
+                if let idUsuario = result?.user.uid {
+                    self.firestore?.collection("usuarios").document(idUsuario).setData([
+                        "nome": self.registerScreen?.getName() ?? "",
+                        "email": self.registerScreen?.getEmail() ?? "",
+                        "id": idUsuario
+                    ])
+                }
                 self.alert?.getALert(title: "Parabéns", message: "Usuário cadastrado com sucesso", completion: {
-                    self.navigationController?.popViewController(animated: true)
+                    let vc = HomeVC()
+                    let navVc = UINavigationController(rootViewController: vc)
+                    navVc.modalPresentationStyle = .fullScreen
+                    self.present(navVc, animated: true, completion: nil)
                 })
             }
         })

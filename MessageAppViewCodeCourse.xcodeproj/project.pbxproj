@@ -11,12 +11,26 @@
 		CC477805280546800089A959 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC477804280546800089A959 /* SceneDelegate.swift */; };
 		CC47780C280546810089A959 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC47780B280546810089A959 /* Assets.xcassets */; };
 		CC47780F280546810089A959 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC47780D280546810089A959 /* LaunchScreen.storyboard */; };
-		CC477820280546C30089A959 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC477818280546C30089A959 /* RegisterViewController.swift */; };
+		CC477820280546C30089A959 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC477818280546C30089A959 /* RegisterVC.swift */; };
 		CC477821280546C30089A959 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47781A280546C30089A959 /* RegisterScreen.swift */; };
-		CC477822280546C30089A959 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47781D280546C30089A959 /* LoginViewController.swift */; };
+		CC477822280546C30089A959 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47781D280546C30089A959 /* LoginVC.swift */; };
 		CC477823280546C30089A959 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47781F280546C30089A959 /* LoginScreen.swift */; };
 		CC477826280548330089A959 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC477825280548330089A959 /* Alert.swift */; };
 		CCB01DC928061E4100FF16F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCB01DC828061E4100FF16F0 /* GoogleService-Info.plist */; };
+		CCB01DCC2806277C00FF16F0 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB01DCB2806277C00FF16F0 /* Extension+UIView.swift */; };
+		CCB01DCE28062C4200FF16F0 /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB01DCD28062C4200FF16F0 /* Custom.swift */; };
+		CCB01DD128062D4900FF16F0 /* Extension+Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB01DCF28062D4900FF16F0 /* Extension+Button.swift */; };
+		CCB01DD228062D4900FF16F0 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB01DD028062D4900FF16F0 /* Extension+String.swift */; };
+		CCB01DD928062D6100FF16F0 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCB01DD428062D6100FF16F0 /* Poppins-Medium.ttf */; };
+		CCB01DDA28062D6100FF16F0 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCB01DD528062D6100FF16F0 /* Poppins-Bold.ttf */; };
+		CCB01DDB28062D6100FF16F0 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCB01DD628062D6100FF16F0 /* Poppins-SemiBold.ttf */; };
+		CCB01DDC28062D6100FF16F0 /* send.wav in Resources */ = {isa = PBXBuildFile; fileRef = CCB01DD828062D6100FF16F0 /* send.wav */; };
+		CCB01DDF280647D400FF16F0 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB01DDE280647D400FF16F0 /* HomeVC.swift */; };
+		CCB01DE22806484200FF16F0 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB01DE12806484200FF16F0 /* HomeScreen.swift */; };
+		CCB01DE628064AE300FF16F0 /* NavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB01DE528064AE300FF16F0 /* NavView.swift */; };
+		CCB01DE928068F5F00FF16F0 /* MessageAllModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB01DE828068F5F00FF16F0 /* MessageAllModel.swift */; };
+		CCB01DEC280691F000FF16F0 /* MessageLastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB01DEB280691F000FF16F0 /* MessageLastCollectionViewCell.swift */; };
+		CCB01DEE2806953600FF16F0 /* MessageDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB01DED2806953600FF16F0 /* MessageDetailCollectionViewCell.swift */; };
 		F3C15E1C61AD2B1664F2F705 /* Pods_MessageAppViewCodeCourse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E8BDE1D84AE2A335C4D2E53 /* Pods_MessageAppViewCodeCourse.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,12 +44,26 @@
 		CC47780B280546810089A959 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC47780E280546810089A959 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC477810280546810089A959 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC477818280546C30089A959 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CC477818280546C30089A959 /* RegisterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		CC47781A280546C30089A959 /* RegisterScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
-		CC47781D280546C30089A959 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CC47781D280546C30089A959 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CC47781F280546C30089A959 /* LoginScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		CC477825280548330089A959 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		CCB01DC828061E4100FF16F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CCB01DCB2806277C00FF16F0 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		CCB01DCD28062C4200FF16F0 /* Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
+		CCB01DCF28062D4900FF16F0 /* Extension+Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+Button.swift"; sourceTree = "<group>"; };
+		CCB01DD028062D4900FF16F0 /* Extension+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		CCB01DD428062D6100FF16F0 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		CCB01DD528062D6100FF16F0 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		CCB01DD628062D6100FF16F0 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		CCB01DD828062D6100FF16F0 /* send.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = send.wav; sourceTree = "<group>"; };
+		CCB01DDE280647D400FF16F0 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		CCB01DE12806484200FF16F0 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		CCB01DE528064AE300FF16F0 /* NavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavView.swift; sourceTree = "<group>"; };
+		CCB01DE828068F5F00FF16F0 /* MessageAllModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAllModel.swift; sourceTree = "<group>"; };
+		CCB01DEB280691F000FF16F0 /* MessageLastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLastCollectionViewCell.swift; sourceTree = "<group>"; };
+		CCB01DED2806953600FF16F0 /* MessageDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +108,12 @@
 		CC477801280546800089A959 /* MessageAppViewCodeCourse */ = {
 			isa = PBXGroup;
 			children = (
+				CCB01DE728068F4300FF16F0 /* Model */,
+				CCB01DCA280625A200FF16F0 /* Utils */,
 				CC477824280548330089A959 /* Alert */,
-				CC47781B280546C30089A959 /* Login */,
+				CCB01DDD2806479600FF16F0 /* Home */,
 				CC477816280546C30089A959 /* Register */,
+				CC47781B280546C30089A959 /* Login */,
 				CC477802280546800089A959 /* AppDelegate.swift */,
 				CC477804280546800089A959 /* SceneDelegate.swift */,
 				CC47780B280546810089A959 /* Assets.xcassets */,
@@ -105,7 +136,7 @@
 		CC477817280546C30089A959 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CC477818280546C30089A959 /* RegisterViewController.swift */,
+				CC477818280546C30089A959 /* RegisterVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -130,7 +161,7 @@
 		CC47781C280546C30089A959 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CC47781D280546C30089A959 /* LoginViewController.swift */,
+				CC47781D280546C30089A959 /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -149,6 +180,89 @@
 				CC477825280548330089A959 /* Alert.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		CCB01DCA280625A200FF16F0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CCB01DD328062D6100FF16F0 /* Fonts */,
+				CCB01DD728062D6100FF16F0 /* Sound */,
+				CCB01DCB2806277C00FF16F0 /* Extension+UIView.swift */,
+				CCB01DCD28062C4200FF16F0 /* Custom.swift */,
+				CCB01DCF28062D4900FF16F0 /* Extension+Button.swift */,
+				CCB01DD028062D4900FF16F0 /* Extension+String.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CCB01DD328062D6100FF16F0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CCB01DD428062D6100FF16F0 /* Poppins-Medium.ttf */,
+				CCB01DD528062D6100FF16F0 /* Poppins-Bold.ttf */,
+				CCB01DD628062D6100FF16F0 /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CCB01DD728062D6100FF16F0 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				CCB01DD828062D6100FF16F0 /* send.wav */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
+		CCB01DDD2806479600FF16F0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CCB01DEA2806919200FF16F0 /* Cell */,
+				CCB01DE428064ABF00FF16F0 /* NavView */,
+				CCB01DE32806485000FF16F0 /* Controller */,
+				CCB01DE02806482C00FF16F0 /* Screen */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CCB01DE02806482C00FF16F0 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				CCB01DE12806484200FF16F0 /* HomeScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		CCB01DE32806485000FF16F0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CCB01DDE280647D400FF16F0 /* HomeVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CCB01DE428064ABF00FF16F0 /* NavView */ = {
+			isa = PBXGroup;
+			children = (
+				CCB01DE528064AE300FF16F0 /* NavView.swift */,
+			);
+			path = NavView;
+			sourceTree = "<group>";
+		};
+		CCB01DE728068F4300FF16F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CCB01DE828068F5F00FF16F0 /* MessageAllModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CCB01DEA2806919200FF16F0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CCB01DEB280691F000FF16F0 /* MessageLastCollectionViewCell.swift */,
+				CCB01DED2806953600FF16F0 /* MessageDetailCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		E023FF3AE4A09DF2A9F46A1F /* Frameworks */ = {
@@ -220,7 +334,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC47780F280546810089A959 /* LaunchScreen.storyboard in Resources */,
+				CCB01DD928062D6100FF16F0 /* Poppins-Medium.ttf in Resources */,
+				CCB01DDA28062D6100FF16F0 /* Poppins-Bold.ttf in Resources */,
+				CCB01DDB28062D6100FF16F0 /* Poppins-SemiBold.ttf in Resources */,
 				CC47780C280546810089A959 /* Assets.xcassets in Resources */,
+				CCB01DDC28062D6100FF16F0 /* send.wav in Resources */,
 				CCB01DC928061E4100FF16F0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,13 +392,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC477822280546C30089A959 /* LoginViewController.swift in Sources */,
+				CCB01DCC2806277C00FF16F0 /* Extension+UIView.swift in Sources */,
+				CC477822280546C30089A959 /* LoginVC.swift in Sources */,
+				CCB01DCE28062C4200FF16F0 /* Custom.swift in Sources */,
 				CC477821280546C30089A959 /* RegisterScreen.swift in Sources */,
 				CC477803280546800089A959 /* AppDelegate.swift in Sources */,
+				CCB01DE928068F5F00FF16F0 /* MessageAllModel.swift in Sources */,
 				CC477823280546C30089A959 /* LoginScreen.swift in Sources */,
+				CCB01DE628064AE300FF16F0 /* NavView.swift in Sources */,
+				CCB01DE22806484200FF16F0 /* HomeScreen.swift in Sources */,
 				CC477805280546800089A959 /* SceneDelegate.swift in Sources */,
-				CC477820280546C30089A959 /* RegisterViewController.swift in Sources */,
+				CCB01DD228062D4900FF16F0 /* Extension+String.swift in Sources */,
+				CC477820280546C30089A959 /* RegisterVC.swift in Sources */,
+				CCB01DDF280647D400FF16F0 /* HomeVC.swift in Sources */,
 				CC477826280548330089A959 /* Alert.swift in Sources */,
+				CCB01DEC280691F000FF16F0 /* MessageLastCollectionViewCell.swift in Sources */,
+				CCB01DD128062D4900FF16F0 /* Extension+Button.swift in Sources */,
+				CCB01DEE2806953600FF16F0 /* MessageDetailCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
