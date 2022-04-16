@@ -1,27 +1,18 @@
 //
-//  NavView.swift
+//  ChatNavigationView.swift
 //  MessageAppViewCodeCourse
 //
-//  Created by Jean Lucas Vitor on 12/04/22.
+//  Created by Jean Lucas Vitor on 13/04/22.
 //
 
 import UIKit
 
-enum TypeConversationOrContact {
-    case conversation
-    case contact
-}
-
-protocol NavViewProtocol: AnyObject {
-    func typeScreenMessage(type: TypeConversationOrContact)
-}
-
-class NavView: UIView {
+class ChatNavigationView: UIView {
     
-    weak private var delegate: NavViewProtocol?
-    
-    func delegate(delegate: NavViewProtocol?) {
-        self.delegate = delegate
+    var controller: ChatVC? {
+        didSet {
+            self.backButton.addTarget(controller, action: #selector(ChatVC.tappedBackButton), for: .touchUpInside)
+        }
     }
     
     lazy var navBackGroundView: UIView = {
@@ -30,8 +21,8 @@ class NavView: UIView {
         view.backgroundColor = .white
         view.layer.cornerRadius = 35
         view.layer.maskedCorners = [.layerMaxXMaxYCorner]
-        view.layer.shadowColor = UIColor(white: 0, alpha: 0.02).cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 5)
+        view.layer.shadowColor = UIColor(white: 0, alpha: 0.05).cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 10)
         view.layer.shadowOpacity = 1
         view.layer.shadowRadius = 10
         return view
@@ -56,7 +47,7 @@ class NavView: UIView {
     lazy var searchLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Digite aqui"
+        label.text = "Procurar"
         label.font = UIFont(name: CustomFont.poppinsMedium, size: 16)
         label.textColor = .lightGray
         return label
@@ -69,32 +60,23 @@ class NavView: UIView {
         return button
     }()
     
-    let stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.distribution = .fillEqually
-        stack.axis = .horizontal
-        stack.spacing = 10
-        return stack
-    }()
-    
-    lazy var conversationButton: UIButton = {
+    lazy var backButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "message")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.tintColor = .systemPink
-        button.addTarget(self, action: #selector(self.tappedConversationButton), for: .touchUpInside)
+        button.setImage(UIImage(named: "back"), for: .normal)
         return button
     }()
     
-    lazy var contactButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "group")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.tintColor = .black
-        button.addTarget(self, action: #selector(self.tappedContactButton), for: .touchUpInside)
-        return button
+    lazy var customImage: UIImageView = {
+        let img = UIImageView()
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.contentMode = .scaleAspectFill
+        img.clipsToBounds = true
+        img.layer.cornerRadius = 26
+        img.image = UIImage(named: "imagem-perfil")
+        return img
     }()
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -109,24 +91,11 @@ class NavView: UIView {
     private func addElements() {
         self.addSubview(self.navBackGroundView)
         self.navBackGroundView.addSubview(self.navBar)
+        self.navBar.addSubview(self.backButton)
+        self.navBar.addSubview(self.customImage)
         self.navBar.addSubview(self.searchBar)
-        self.navBar.addSubview(self.stackView)
         self.searchBar.addSubview(self.searchLabel)
         self.searchBar.addSubview(self.searchButton)
-        self.stackView.addArrangedSubview(self.conversationButton)
-        self.stackView.addArrangedSubview(self.contactButton)
-    }
-    
-    @objc func tappedConversationButton() {
-        self.delegate?.typeScreenMessage(type: .conversation)
-        self.conversationButton.tintColor = .systemPink
-        self.contactButton.tintColor = .black
-    }
-    
-    @objc func tappedContactButton() {
-        self.delegate?.typeScreenMessage(type: .contact)
-        self.conversationButton.tintColor = .black
-        self.contactButton.tintColor = .systemPink
     }
     
     private func setUpConstraints() {
@@ -141,9 +110,19 @@ class NavView: UIView {
             self.navBar.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.navBar.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            self.searchBar.leadingAnchor.constraint(equalTo: self.navBar.leadingAnchor, constant: 20),
+            self.backButton.leadingAnchor.constraint(equalTo: self.navBar.leadingAnchor, constant: 20),
+            self.backButton.centerYAnchor.constraint(equalTo: self.navBar.centerYAnchor),
+            self.backButton.heightAnchor.constraint(equalToConstant: 30),
+            self.backButton.widthAnchor.constraint(equalToConstant: 30),
+            
+            self.customImage.leadingAnchor.constraint(equalTo: self.backButton.trailingAnchor, constant: 20),
+            self.customImage.centerYAnchor.constraint(equalTo: self.navBar.centerYAnchor),
+            self.customImage.heightAnchor.constraint(equalToConstant: 55),
+            self.customImage.widthAnchor.constraint(equalToConstant: 55),
+            
+            self.searchBar.leadingAnchor.constraint(equalTo: self.customImage.trailingAnchor, constant: 20),
+            self.searchBar.trailingAnchor.constraint(equalTo: self.navBar.trailingAnchor, constant: -20),
             self.searchBar.centerYAnchor.constraint(equalTo: self.navBar.centerYAnchor),
-            self.searchBar.trailingAnchor.constraint(equalTo: self.stackView.leadingAnchor, constant: -20),
             self.searchBar.heightAnchor.constraint(equalToConstant: 55),
             
             self.searchLabel.leadingAnchor.constraint(equalTo: self.searchBar.leadingAnchor, constant: 25),
@@ -154,10 +133,6 @@ class NavView: UIView {
             self.searchButton.widthAnchor.constraint(equalToConstant: 20),
             self.searchButton.heightAnchor.constraint(equalToConstant: 20),
             
-            self.stackView.trailingAnchor.constraint(equalTo: self.navBar.trailingAnchor, constant: -20),
-            self.stackView.centerYAnchor.constraint(equalTo: self.navBar.centerYAnchor),
-            self.stackView.widthAnchor.constraint(equalToConstant: 100),
-            self.stackView.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
     

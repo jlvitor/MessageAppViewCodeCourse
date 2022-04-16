@@ -145,6 +145,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                 self.alert?.addContact(completion: { value in
                     self.contact?.addContact(email: value, emailUsuarioLogado: self.emailUsuarioLogado ?? "", idUsuario: self.idUsuarioLogado ?? "")
                 })
+            } else {
+                let vc: ChatVC = ChatVC()
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         } else {
             
