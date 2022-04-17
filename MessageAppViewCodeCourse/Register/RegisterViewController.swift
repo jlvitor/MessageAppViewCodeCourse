@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class RegisterVC: UIViewController {
+class RegisterViewController: UIViewController {
     var registerScreen: RegisterScreen?
     var auth: Auth?
     var firestore: Firestore?
@@ -29,7 +29,7 @@ class RegisterVC: UIViewController {
     }
 }
 
-extension RegisterVC: UITextFieldDelegate {
+extension RegisterViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.registerScreen?.validaTextFields()
     }
@@ -40,7 +40,7 @@ extension RegisterVC: UITextFieldDelegate {
     }
 }
 
-extension RegisterVC: RegisterScreenProtocol {
+extension RegisterViewController: RegisterScreenProtocol {
     func actionBackButton() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -61,7 +61,7 @@ extension RegisterVC: RegisterScreenProtocol {
                     ])
                 }
                 self.alert?.getALert(title: "Parabéns", message: "Usuário cadastrado com sucesso", completion: {
-                    let vc = HomeVC()
+                    let vc = HomeViewController()
                     let navVc = UINavigationController(rootViewController: vc)
                     navVc.modalPresentationStyle = .fullScreen
                     self.present(navVc, animated: true, completion: nil)

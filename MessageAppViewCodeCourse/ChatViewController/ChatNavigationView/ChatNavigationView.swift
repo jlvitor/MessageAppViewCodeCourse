@@ -9,9 +9,9 @@ import UIKit
 
 class ChatNavigationView: UIView {
     
-    var controller: ChatVC? {
+    var controller: ChatViewController? {
         didSet {
-            self.backButton.addTarget(controller, action: #selector(ChatVC.tappedBackButton), for: .touchUpInside)
+            self.backButton.addTarget(controller, action: #selector(ChatViewController.tappedBackButton), for: .touchUpInside)
         }
     }
     
@@ -21,8 +21,8 @@ class ChatNavigationView: UIView {
         view.backgroundColor = .white
         view.layer.cornerRadius = 35
         view.layer.maskedCorners = [.layerMaxXMaxYCorner]
-        view.layer.shadowColor = UIColor(white: 0, alpha: 0.05).cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 10)
+        view.layer.shadowColor = UIColor(white: 0, alpha: 0.02).cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 5)
         view.layer.shadowOpacity = 1
         view.layer.shadowRadius = 10
         return view

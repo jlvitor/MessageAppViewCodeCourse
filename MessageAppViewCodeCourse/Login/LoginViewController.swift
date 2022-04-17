@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class LoginVC: UIViewController {
+class LoginViewController: UIViewController {
     var loginScreen: LoginScreen?
     var auth: Auth?
     var alert: Alert?
@@ -32,7 +32,7 @@ class LoginVC: UIViewController {
     
 }
 
-extension LoginVC: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
     }
     
@@ -46,7 +46,7 @@ extension LoginVC: UITextFieldDelegate {
     
 }
 
-extension LoginVC: LoginScreenProtocol {
+extension LoginViewController: LoginScreenProtocol {
     func actionLoginButton() {
         guard let login = loginScreen else { return }
         
@@ -57,7 +57,7 @@ extension LoginVC: LoginScreenProtocol {
                 if usuario == nil {
                     self.alert?.getALert(title: "Atenção", message: "Tivemos um problema inesperado, tente novamente mais tarde.")
                 } else {
-                    let vc = HomeVC()
+                    let vc = HomeViewController()
                     let navVc = UINavigationController(rootViewController: vc)
                     navVc.modalPresentationStyle = .fullScreen
                     self.present(navVc, animated: true, completion: nil)
@@ -67,7 +67,7 @@ extension LoginVC: LoginScreenProtocol {
     }
     
     func actionRegisterButton() {
-        let viewController: RegisterVC = RegisterVC()
+        let viewController: RegisterViewController = RegisterViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     

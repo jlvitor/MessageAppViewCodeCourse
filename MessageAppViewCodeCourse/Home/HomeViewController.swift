@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class HomeVC: UIViewController {
+class HomeViewController: UIViewController {
     
     var auth: Auth?
     var db: Firestore?
@@ -111,7 +111,7 @@ class HomeVC: UIViewController {
     }
 }
 
-extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.screenContact ?? false {
@@ -146,7 +146,10 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                     self.contact?.addContact(email: value, emailUsuarioLogado: self.emailUsuarioLogado ?? "", idUsuario: self.idUsuarioLogado ?? "")
                 })
             } else {
-                let vc: ChatVC = ChatVC()
+                let vc: ChatViewController = ChatViewController()
+                let dados = self.listOfMessages[indexPath.row]
+                let contato: Contact = Contact(nome: dados.nome ?? "", id: dados.idDestinatario ?? "")
+                vc.contato = contato
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         } else {
@@ -161,7 +164,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
 }
 
-extension HomeVC: NavViewProtocol {
+extension HomeViewController: NavViewProtocol {
     
     func typeScreenMessage(type: TypeConversationOrContact) {
         switch type {
@@ -178,7 +181,7 @@ extension HomeVC: NavViewProtocol {
     
 }
 
-extension HomeVC: ContactProtocol {
+extension HomeViewController: ContactProtocol {
     
     func alertStateError(title: String, message: String) {
         self.alert?.getALert(title: title, message: message)

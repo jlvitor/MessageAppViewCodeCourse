@@ -61,7 +61,7 @@ class LoginScreen: UIView {
         textField.keyboardType = .default
         textField.isSecureTextEntry = true
         textField.placeholder = "Digite sua senha"
-        textField.text = "123@Mudar"
+        textField.text = "123456"
         textField.autocapitalizationType = .none
         textField.textColor = .darkGray
         return textField

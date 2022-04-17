@@ -71,6 +71,8 @@ class ChatViewScreen: UIView {
     lazy var tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(IncomingTextMessageTableViewCell.self, forCellReuseIdentifier: IncomingTextMessageTableViewCell.identifier)
+        table.register(OutgoingTextMessageTableViewCell.self, forCellReuseIdentifier: OutgoingTextMessageTableViewCell.identifier)
         table.backgroundColor = .clear
         table.transform = CGAffineTransform(scaleX: 1, y: -1)
         table.separatorStyle = .none
@@ -119,7 +121,7 @@ class ChatViewScreen: UIView {
         self.tableView.reloadData()
     }
     
-    public func configNavView(controller: ChatVC) {
+    public func configNavView(controller: ChatViewController) {
         self.navView.controller = controller
     }
     
@@ -169,8 +171,6 @@ class ChatViewScreen: UIView {
             })
         }
     }
-    
-    
     
     func setUpConstraints() {
         NSLayoutConstraint.activate([
